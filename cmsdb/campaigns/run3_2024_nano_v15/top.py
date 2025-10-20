@@ -200,17 +200,41 @@ cpn.add_dataset(
 # single top
 #
 
-# missing
-# cpn.add_dataset(
-#     name="st_tchannel_t_4f_powheg",
-#     ...
-# )
+cpn.add_dataset(
+    name="st_tchannel_t_lep_powheg",
+    id=15316115,
+    processes=[procs.st_tchannel_t_lep],
+    info=dict(
+        nominal=DatasetInfo(
+            keys=[
+                "/TbarBQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM",  # noqa: E501
+            ],
+            aux={
+                "broken_files": [],
+            },
+            n_files=249,  # 249-0
+            n_events=22102160,
+        ),
+    ),
+)
 
-# missing
-# cpn.add_dataset(
-#     name="st_tchannel_tbar_4f_powheg",
-#     ...
-# )
+cpn.add_dataset(
+    name="st_tchannel_tbar_lep_powheg",
+    id=15316276,
+    processes=[procs.st_tchannel_tbar_lep],
+    info=dict(
+        nominal=DatasetInfo(
+            keys=[
+                "/TBbarQtoLNu-t-channel-4FS_TuneCP5_13p6TeV_powheg-madspin-pythia8/RunIII2024Summer24NanoAODv15-150X_mcRun3_2024_realistic_v2-v2/NANOAODSIM",  # noqa: E501
+            ],
+            aux={
+                "broken_files": [],
+            },
+            n_files=391,  # 391-0
+            n_events=44258039,
+        ),
+    ),
+)
 
 cpn.add_dataset(
     name="st_twchannel_t_sl_powheg",

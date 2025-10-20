@@ -7,8 +7,9 @@ Top-related process definitions.
 __all__ = [
     "tt",
     "tt_sl", "tt_dl", "tt_fh",
-    "st",
+    "st", 
     "st_tchannel", "st_tchannel_t", "st_tchannel_tbar",
+    "st_tchannel_lep", "st_tchannel_t_lep", "st_tchannel_tbar_lep",
     "st_twchannel", "st_twchannel_t", "st_twchannel_tbar",
     "st_twchannel_t_sl", "st_twchannel_tbar_sl",
     "st_twchannel_t_dl", "st_twchannel_tbar_dl",
@@ -55,7 +56,7 @@ tt = Process(
             "pdf": 21.0,
             "mtop": (23.2, 22.5),
         }),
-        13.6: Number(923.6, {
+        13.6: Number(10000, { #923.6
             "scale": (22.6, 33.4),
             "pdf": 22.8,
             "mtop": (25.4, 24.6),
@@ -191,6 +192,25 @@ st_twchannel = st.add_process(
             E_beam=0.2,
         )),
     },
+)
+
+st_tchannel_lep = st.add_process(
+    name="st_tchannel_lep",
+    id=2101,
+    label=f"{st.label}, t-channel",
+    xsecs=multiply_xsecs(st_tchannel, const.br_w.lep),
+)
+
+st_tchannel_t_lep = st_tchannel_lep.add_process(
+    name="st_tchannel_t_lep",
+    id=2111,
+    xsecs=multiply_xsecs(st_tchannel_t, const.br_w.lep)
+)
+
+st_tchannel_tbar_lep = st_tchannel_lep.add_process(
+    name="st_tchannel_tbar_lep",
+    id=2121,
+    xsecs=multiply_xsecs(st_tchannel_tbar, const.br_w.lep)
 )
 
 st_twchannel_t = st_twchannel.add_process(
